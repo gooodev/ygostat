@@ -23,9 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# Source generator output directory
-codegen*
-
 # Others
 *bkup*
 .vscode
