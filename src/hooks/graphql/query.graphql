@@ -1,0 +1,44 @@
+query decksByUser($userId: String) {
+  decks(where: { userId: { _eq: $userId } }) {
+    id
+    name
+    deckTheme {
+      themeName: name
+      mainImgUrl
+    }
+    memo
+  }
+}
+
+query duelRecordsByUser($userId: String) {
+  duelRecords(where: { userId: { _eq: $userId } }) {
+    myDeck {
+      myDeckName: name
+    }
+    compDeckTheme {
+      compDeckThemeName: name
+    }
+    isFirstTurn
+    memo
+    duelDateTime
+  }
+}
+
+query deckById($id: Int!) {
+  decksByPk(id: $id) {
+    name
+    themeId
+    deckTheme {
+      themeName: name
+    }
+    memo
+  }
+}
+
+query allDeckThemes {
+  deckThemes {
+    id
+    name
+    nameKana
+  }
+}
