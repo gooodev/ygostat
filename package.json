@@ -16,7 +16,7 @@
     "validate": "yarn typecheck && yarn lint && yarn format",
     "generate": "yarn scaffdog generate",
     "codegen:graphql": "DOTENV_CONFIG_PATH=.env graphql-codegen -r dotenv/config",
-    "precommit": "validate"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.10.2",
