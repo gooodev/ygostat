@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "prebuild": "yarn typecheck && yarn lint && yarn format",
+    "prebuild": "validate",
     "watch": "vite build --watch",
     "preview": "vite preview",
     "test": "jest",
@@ -13,14 +13,10 @@
     "lint": "eslint --fix --ext .js,.ts,.tsx ./src --ignore-path .gitignore",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|ts|tsx)\"",
     "typecheck": "tsc --pretty --noEmit",
+    "validate": "yarn typecheck && yarn lint && yarn format",
     "generate": "yarn scaffdog generate",
-    "codegen:graphql": "DOTENV_CONFIG_PATH=.env graphql-codegen -r dotenv/config"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn typecheck && yarn lint && yarn format && yarn test",
-      "pre-push": "yarn test"
-    }
+    "codegen:graphql": "DOTENV_CONFIG_PATH=.env graphql-codegen -r dotenv/config",
+    "precommit": "validate"
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.10.2",
