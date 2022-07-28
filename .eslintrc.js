@@ -13,7 +13,6 @@ module.exports = {
     'plugin:import/typescript',
     'prettier',
     'plugin:storybook/recommended',
-    '@goodev323/ts-react',
   ],
   rules: {
     'import/extensions': [
@@ -30,7 +29,7 @@ module.exports = {
       [
         // For keeping easy to switch auth service.
         {
-          module: '@clerk/clerk-react',
+          module: '@auth0/auth0-react',
           allowReferenceFrom: ['src/hooks/useAuth.ts', 'src/components/providers'],
           allowSameModule: false,
         },
@@ -47,6 +46,16 @@ module.exports = {
           allowSameModule: false,
         },
         {
+          module: 'src/components/providers',
+          allowReferenceFrom: ['src/main.tsx'],
+          allowSameModule: false,
+        },
+        {
+          module: 'src/components/pages',
+          allowReferenceFrom: ['src/routes/RouteMap.tsx'],
+          allowSameModule: false,
+        },
+        {
           module: 'src/components/features',
           allowReferenceFrom: [
             'src/components/features',
@@ -59,11 +68,6 @@ module.exports = {
         {
           module: 'src/components/layouts',
           allowReferenceFrom: ['src/components/pages'],
-          allowSameModule: false,
-        },
-        {
-          module: 'src/components/providers',
-          allowReferenceFrom: ['src/components'],
           allowSameModule: false,
         },
       ],
