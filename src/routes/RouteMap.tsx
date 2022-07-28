@@ -3,7 +3,6 @@ import {
   LazyDeckListPage,
   LazyDuelRecordsPage,
   LazyLandingPage,
-  LazySignInPage,
 } from '@/components/pages';
 import { Navigate } from 'react-router-dom';
 
@@ -16,10 +15,6 @@ export const RouteMap = {
   records: {
     path: '/records',
     element: <LazyDuelRecordsPage />,
-  },
-  signin: {
-    path: '/signin',
-    element: <LazySignInPage />,
   },
   decks: {
     path: '/decks',
